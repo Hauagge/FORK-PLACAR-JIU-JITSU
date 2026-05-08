@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://placardigital-jiujitsu.netlify.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JiuJitsu - Score Board</title>
+  <meta name="keywords" content="jiujitsu, jiu-jitsu, placar, eletrônico, digital, campeonato, CBJJ, CBJJE, luta, arte, macial">
+  <link rel="stylesheet" href="./JiuJitsu - Score Board_files/themes.css">
+  <link rel="stylesheet" href="./JiuJitsu - Score Board_files/custom.css">
+  <link rel="stylesheet" href="./JiuJitsu - Score Board_files/modal.css">
+<style type="text/css" id="operaUserStyle">
+  video {
+    filter: -opera-shader(url(data:text/plain;base64,Ly8gaHR0cHM6Ly9naXRodWIuY29tL0dQVU9wZW4tRWZmZWN0cy9GaWRlbGl0eUZYLUNBUwovLyB2MwoKdW5pZm9ybSBzaGFkZXIgaUNodW5rOwp1bmlmb3JtIGZsb2F0MiBpQ2h1bmtTaXplOwp1bmlmb3JtIGZsb2F0MiBpTW91c2U7CnVuaWZvcm0gZmxvYXQgaUFyZ3NbMV07Cgpjb25zdCBmbG9hdCBFUFNJT04gPSAwLjE7CmNvbnN0IGZsb2F0IFZfTUlOID0gMDsKY29uc3QgZmxvYXQgVl9MT1cgPSAwLjI1Owpjb25zdCBmbG9hdCBWX01FRCA9IDAuNTsKY29uc3QgZmxvYXQgVl9ISUdIID0gMC43NTsKY29uc3QgZmxvYXQgVl9NQVggPSAxOwoKY29uc3QgZmxvYXQgVEhSRVNIT0xEX0FSRUEgPSA4MDAgKiA2MDA7CmNvbnN0IGZsb2F0IE1JTl9BUkVBID0gNDAwICogMTAwOwpjb25zdCBmbG9hdCBNSU5fU1RSSVAgPSAyMDsKY29uc3QgZmxvYXQgTUFSR0lOID0gMTsKCmZsb2F0MyBwaXhlbChpbnQgeCwgaW50IHksIGZsb2F0MiB4eSkgewogICAgcmV0dXJuIGlDaHVuay5ldmFsKHh5ICsgZmxvYXQyKHgsIHkpKS5yZ2I7Cn0KCmZsb2F0MyBzaGFycGVuKGZsb2F0MiB4eSkgewogICAgZmxvYXQzIGYgPQogICAgICAgIHBpeGVsKC0xLCAtMSwgeHkpICogIDEgKwogICAgICAgIHBpeGVsKCAwLCAtMSwgeHkpICogLTEgKwogICAgICAgIHBpeGVsKCAxLCAtMSwgeHkpICogIDEgKwoKICAgICAgICBwaXhlbCgtMSwgMCwgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMCwgMCwgeHkpICogLTEgICsKICAgICAgICBwaXhlbCggMSwgMCwgeHkpICogLTEgICsKCiAgICAgICAgcGl4ZWwoLTEsIDEsIHh5KSAqIDEgICArCiAgICAgICAgcGl4ZWwoIDAsIDEsIHh5KSAqIC0xICArCiAgICAgICAgcGl4ZWwoIDEsIDEsIHh5KSAqIDE7CiAgICByZXR1cm4gZiAvIC0xOwp9CgpmbG9hdDQgUkdYMihmbG9hdDIgeHkpIHsKICAgIGZsb2F0NCBjb2xvciA9IGlDaHVuay5ldmFsKHh5KTsKCiAgICBpZiAoaUNodW5rU2l6ZS54ICogaUNodW5rU2l6ZS55IDwgTUlOX0FSRUEpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKGlDaHVua1NpemUueSA8IE1JTl9TVFJJUCB8fCBpQ2h1bmtTaXplLnggPCBNSU5fU1RSSVApIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgaWYgKHh5LnggPCBNQVJHSU4gfHwgeHkueCA+IChpQ2h1bmtTaXplLnggLSBNQVJHSU4pIHx8CiAgICAgICAgeHkueSA8IE1BUkdJTiB8fCB4eS55ID4gKGlDaHVua1NpemUueSAtIE1BUkdJTikpIHsKICAgICAgICByZXR1cm4gY29sb3I7CiAgICB9CgogICAgcmV0dXJuIGZsb2F0NChzaGFycGVuKHh5KSwgMSk7Cn0KCmZsb2F0IG1pbjMoZmxvYXQgeCwgZmxvYXQgeSwgZmxvYXQgeikgewogICAgcmV0dXJuIG1pbih4LCBtaW4oeSwgeikpOwp9CgpmbG9hdCBtYXgzKGZsb2F0IHgsIGZsb2F0IHksIGZsb2F0IHopIHsKICAgIHJldHVybiBtYXgoeCwgbWF4KHksIHopKTsKfQoKZmxvYXQgcmNwKGZsb2F0IHYpIHsKICAgIHJldHVybiAxIC8gdjsKfQoKZmxvYXQzIFJHWDMoZmxvYXQyIHh5LCBmbG9hdCBzdHJlbmd0aCkgewogICAgZmxvYXQzIGEgPSBwaXhlbCgtMSwgLTEsIHh5KTsKICAgIGZsb2F0MyBiID0gcGl4ZWwoIDAsIC0xLCB4eSk7CiAgICBmbG9hdDMgYyA9IHBpeGVsKCAxLCAtMSwgeHkpOwoKICAgIGZsb2F0MyBkID0gcGl4ZWwoLTEsIDAsIHh5KTsKICAgIGZsb2F0MyBlID0gcGl4ZWwoIDAsIDAsIHh5KTsKICAgIGZsb2F0MyBmID0gcGl4ZWwoIDEsIDAsIHh5KTsKCiAgICBmbG9hdDMgZyA9IHBpeGVsKC0xLCAxLCB4eSk7CiAgICBmbG9hdDMgaCA9IHBpeGVsKCAwLCAxLCB4eSk7CiAgICBmbG9hdDMgaSA9IHBpeGVsKCAxLCAxLCB4eSk7CgogICAgZmxvYXQgbW5SID0gbWluMyhtaW4zKGQuciwgZS5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBtbkcgPSBtaW4zKG1pbjMoZC5nLCBlLmcsIGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG1uQiA9IG1pbjMobWluMyhkLmIsIGUuYiwgZi5iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG1uUjIgPSBtaW4zKG1pbjMobW5SLCBhLnIsIGMuciksIGcuciwgaS5yKTsKICAgIGZsb2F0IG1uRzIgPSBtaW4zKG1pbjMobW5HLCBhLmcsIGMuZyksIGcuZywgaS5nKTsKICAgIGZsb2F0IG1uQjIgPSBtaW4zKG1pbjMobW5CLCBhLmIsIGMuYiksIGcuYiwgaS5iKTsKCiAgICBtblIgPSBtblIgKyBtblIyOwogICAgbW5HID0gbW5HICsgbW5HMjsKICAgIG1uQiA9IG1uQiArIG1uQjI7CgogICAgZmxvYXQgbXhSID0gbWF4MyhtYXgzKGQuciwgZS5yLCBmLnIpLCBiLnIsIGgucik7CiAgICBmbG9hdCBteEcgPSBtYXgzKG1heDMoZC5nLCBlLmcsIGYuZyksIGIuZywgaC5nKTsKICAgIGZsb2F0IG14QiA9IG1heDMobWF4MyhkLmIsIGUuYiwgZi5iKSwgYi5iLCBoLmIpOwoKICAgIGZsb2F0IG14UjIgPSBtYXgzKG1heDMobXhSLCBhLnIsIGMuciksIGcuciwgaS5yKTsKICAgIGZsb2F0IG14RzIgPSBtYXgzKG1heDMobXhHLCBhLmcsIGMuZyksIGcuZywgaS5nKTsKICAgIGZsb2F0IG14QjIgPSBtYXgzKG1heDMobXhCLCBhLmIsIGMuYiksIGcuYiwgaS5iKTsKCiAgICBteFIgPSBteFIgKyBteFIyOwogICAgbXhHID0gbXhHICsgbXhHMjsKICAgIG14QiA9IG14QiArIG14QjI7CgogICAgZmxvYXQgcmNwTVIgPSByY3AobXhSKTsKICAgIGZsb2F0IHJjcE1HID0gcmNwKG14Ryk7CiAgICBmbG9hdCByY3BNQiA9IHJjcChteEIpOwoKICAgIGZsb2F0IGFtcFIgPSBzYXR1cmF0ZShtaW4obW5SLCAyIC0gbXhSKSAqIHJjcE1SKTsKICAgIGZsb2F0IGFtcEcgPSBzYXR1cmF0ZShtaW4obW5HLCAyIC0gbXhHKSAqIHJjcE1HKTsKICAgIGZsb2F0IGFtcEIgPSBzYXR1cmF0ZShtaW4obW5CLCAyIC0gbXhCKSAqIHJjcE1CKTsKCiAgICBhbXBSID0gc3FydChhbXBSKTsKICAgIGFtcEcgPSBzcXJ0KGFtcEcpOwogICAgYW1wQiA9IHNxcnQoYW1wQik7CgogICAgZmxvYXQgcGVhayA9IC1yY3AobWl4KDgsIDUsIHN0cmVuZ3RoKSk7CgogICAgZmxvYXQgd1IgPSBhbXBSICogcGVhazsKICAgIGZsb2F0IHdHID0gYW1wRyAqIHBlYWs7CiAgICBmbG9hdCB3QiA9IGFtcEIgKiBwZWFrOwoKICAgIGZsb2F0IHJjcFdlaWdodFIgPSByY3AoMSArIDQgKiB3Uik7CiAgICBmbG9hdCByY3BXZWlnaHRHID0gcmNwKDEgKyA0ICogd0cpOwogICAgZmxvYXQgcmNwV2VpZ2h0QiA9IHJjcCgxICsgNCAqIHdCKTsKCiAgICByZXR1cm4gZmxvYXQzKAogICAgICAgIHNhdHVyYXRlKChiLnIgKiB3UiArIGQuciAqIHdSICsgZi5yICogd1IgKyBoLnIgKiB3UiArIGUucikgKiByY3BXZWlnaHRSKSwKICAgICAgICBzYXR1cmF0ZSgoYi5nICogd0cgKyBkLmcgKiB3RyArIGYuZyAqIHdHICsgaC5nICogd0cgKyBlLmcpICogcmNwV2VpZ2h0RyksCiAgICAgICAgc2F0dXJhdGUoKGIuYiAqIHdCICsgZC5iICogd0IgKyBmLmIgKiB3QiArIGguYiAqIHdCICsgZS5iKSAqIHJjcFdlaWdodEIpKTsKfQoKCmZsb2F0NCBtYWluKGZsb2F0MiB4eSkgewoKICAgIGZsb2F0NCBvcmlnaW5hbENvbG9yID0gaUNodW5rLmV2YWwoeHkpOwogICAgaWYgKG9yaWdpbmFsQ29sb3IuYSA8IDEpIHsKICAgICAgICByZXR1cm4gaUNodW5rLmV2YWwoeHkpOwogICAgfQoKICAgIGZsb2F0IGludGVuc2l0eSA9IGlBcmdzWzBdOwogICAgZmxvYXQgc3RyZW5ndGggPSAwOwogICAgZmxvYXQzIGNvbG9yOwoKICAgIGlmIChpbnRlbnNpdHkgPCBWX01JTiArIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMC4xMDsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfTE9XIC0gRVBTSU9OICYmIGludGVuc2l0eSA8IFZfTE9XICsgRVBTSU9OKSB7CiAgICAgICAgc3RyZW5ndGggPSAwLjMzOwogICAgICAgIGNvbG9yID0gUkdYMyh4eSwgc3RyZW5ndGgpOwoKICAgIH0gZWxzZSBpZiAoaW50ZW5zaXR5ID4gVl9NRUQgLSBFUFNJT04gJiYgaW50ZW5zaXR5IDwgVl9NRUQgKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuNTsKICAgICAgICBjb2xvciA9IFJHWDMoeHksIHN0cmVuZ3RoKTsKCiAgICB9IGVsc2UgaWYgKGludGVuc2l0eSA+IFZfSElHSCAtIEVQU0lPTiAmJiBpbnRlbnNpdHkgPCBWX0hJR0ggKyBFUFNJT04pIHsKICAgICAgICBzdHJlbmd0aCA9IDAuOTk7CiAgICAgICAgY29sb3IgPSBSR1gzKHh5LCBzdHJlbmd0aCk7CgogICAgfSBlbHNlIGlmIChpbnRlbnNpdHkgPiBWX01BWCAtIEVQU0lPTikgewogICAgICAgIHN0cmVuZ3RoID0gMTsKICAgICAgICBjb2xvciA9IFJHWDIoeHkpLnJnYjsKICAgIH0KCiAgICByZXR1cm4gZmxvYXQ0KGNvbG9yLCBvcmlnaW5hbENvbG9yLmEpOwp9) -opera-args(0.50 calc(env(-opera-gx-accent-color-r)/255) calc(env(-opera-gx-accent-color-g)/255) calc(env(-opera-gx-accent-color-b)/255)));
+  }
+</style></head>
+
+<body id="body">
+  <!-- <header class="header-logo">
+  <img src="./logo.jpeg" alt="logo itaipu">
+</header> -->
+  <main>
+
+
+    <section>
+      <div class="player1">
+        <div class="atleta-name" data-player-name="player1">Atleta 1</div>
+        <div class="points-content">
+          <div class="point-content">
+            <div class="point-title">Montada <br> Pegada nas Costa</div>
+            <div class="point-value" data-point-mounted="player1">0</div>
+            <div class="point-controls">
+              <a class="btn" onclick="player1.mountedDecrement()">-</a>
+              <div class="point-count">4</div>
+              <a class="btn" onclick="player1.mountedIncrement()">+</a>
+            </div>
+          </div>
+
+          <div class="point-content">
+            <div class="point-title">Passagem de Guarda</div>
+            <div class="point-value" data-point-guard="player1">0</div>
+            <div class="point-controls">
+              <a class="btn" onclick="player1.guardDecrement()">-</a>
+              <div class="point-count">3</div>
+              <a class="btn" onclick="player1.guardIncrement()">+</a>
+            </div>
+          </div>
+
+          <div class="point-content">
+            <div class="point-title">Queda <br> Raspagem <br> Joelho na Barriga</div>
+            <div class="point-value" data-point-overthrow="player1">0</div>
+            <div class="point-controls">
+              <a class="btn" onclick="player1.overthrowDecrement()">-</a>
+              <div class="point-count">2</div>
+              <a class="btn" onclick="player1.overthrowIncrement()">+</a>
+            </div>
+          </div>
+
+          <div class="two-point-content">
+
+            <div class="point-content">
+              <div class="point-title">Vantagem</div>
+              <div class="point-value" data-point-advantage="player1">0</div>
+              <div class="point-controls">
+                <a class="btn" onclick="player1.advantageDecrement()">-</a>
+                <a class="btn" onclick="player1.advantageIncrement()">+</a>
+              </div>
+            </div>
+
+
+            <div class="point-content">
+              <div class="point-title">Punição</div>
+              <div class="point-value" data-point-punishment="player1">0</div>
+              <div class="point-controls">
+                <a class="btn" onclick="player1.punishmentDecrement()">-</a>
+                <a class="btn" onclick="player1.punishmentIncrement()">+</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="player2">
+        <div class="atleta-name" data-player-name="player2">Atleta 2</div>
+        <div class="points-content">
+          <div class="point-content">
+            <div class="point-title">Montada <br> Pegada nas Costa</div>
+            <div class="point-value" data-point-mounted="player2">0</div>
+            <div class="point-controls">
+              <a class="btn" onclick="player2.mountedDecrement()">-</a>
+              <div class="point-count">4</div>
+              <a class="btn" onclick="player2.mountedIncrement()">+</a>
+            </div>
+          </div>
+
+          <div class="point-content">
+            <div class="point-title">Passagem de Guarda</div>
+            <div class="point-value" data-point-guard="player2">0</div>
+            <div class="point-controls">
+              <a class="btn" onclick="player2.guardDecrement()">-</a>
+              <div class="point-count">3</div>
+              <a class="btn" onclick="player2.guardIncrement()">+</a>
+            </div>
+          </div>
+
+          <div class="point-content">
+            <div class="point-title">Queda <br> Raspagem <br> Joelho na Barriga</div>
+            <div class="point-value" data-point-overthrow="player2">0</div>
+            <div class="point-controls">
+              <a class="btn" onclick="player2.overthrowDecrement()">-</a>
+              <div class="point-count">2</div>
+              <a class="btn" onclick="player2.overthrowIncrement()">+</a>
+            </div>
+          </div>
+
+          <div class="two-point-content">
+
+            <div class="point-content">
+              <div class="point-title">Vantagem</div>
+              <div class="point-value" data-point-advantage="player2">0</div>
+              <div class="point-controls">
+                <a class="btn" onclick="player2.advantageDecrement()">-</a>
+                <a class="btn" onclick="player2.advantageIncrement()">+</a>
+              </div>
+            </div>
+
+
+            <div class="point-content">
+              <div class="point-title">Punição</div>
+              <div class="point-value" data-point-punishment="player2">0</div>
+              <div class="point-controls">
+                <a class="btn" onclick="player2.punishmentDecrement()">-</a>
+                <a class="btn" onclick="player2.punishmentIncrement()">+</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+    </section>
+
+    <sidebar>
+      <div class="total-points player1" data-point-total="player1">0</div>
+      <div id="timer" class="timer-content">
+        <div class="timer-display" data-show-timer="">00:00</div>
+        <div class="timer-controls">
+          <a class="btn" data-timer-start="">Iniciar</a>
+          <a class="btn" data-game-reset="">Reiniciar</a>
+          <a class="config" id="myBtn" title="Configurar" data-config-content="">
+            <img src="./JiuJitsu - Score Board_files/config.png" alt="config">
+          </a>
+        </div>
+      </div>
+      <div class="total-points player2" data-point-total="player2">0</div>
+    </sidebar>
+
+
+
+
+</main>
+  <div class="footer-logo">
+    <div class="modal-images">
+  <div class="modal-footer">
+    <img id="itaipu" src="./logo-jurema.jpeg" alt="jurema" >
+  </div>
+  <div class="modal-footer">
+    <img src="./logo.jpeg" alt="logo itaipu" >
+  </div>
+  <div class="modal-footer">
+    <img src="./logo-superrealar.jpg" alt="real lar" width="100px"  height="200px">
+  </div>
+</div>
+    </div>
+  </div>
+<!-- <img class="logo" src="./logo.jpeg" alt="versus" width="600px"  > -->
+
+  <!-- <img class="logo" src="./items.png" alt="versus" width="450px"  >-->
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">×</span>
+    <h1> Configurar Luta</h1>
+    <form class="form-submit">
+      <div class="form-input">
+        <label for="player1">Atleta1: </label>
+        <input type="text" name="player1" id="player1" placeholder="Nome do atleta" required="" autocomplete="off">
+      </div>
+
+      <div class="form-input">
+        <label for="player2">Atleta2: </label>
+        <input type="text" name="player2" id="player2" placeholder="Nome do atleta" required="" autocomplete="off">
+      </div>
+
+      <div class="form-input">
+        <label for="timer">Tempo: <span></span></label>
+        <input type="range" id="timer" name="timer" min="0" max="10">
+      </div>
+
+      <input type="submit" class="btn" value="Configurar">
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <span>
+      Developed by <a href="https://about.me/geraldo.junior" target="_blank"> Geraldo Júnior</a>
+    </span>
+  </div>
+</div>
+
+  <audio controls="" data-countdown-sound="">
+    <source src="./src/audio/323129-Crowd_chants_a_countdown--three-two-one-.mp3" type="audio/mp3">
+    <source src="./src/audio/mixkit-short-race-countdown-926.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="./JiuJitsu - Score Board_files/player.js"></script>
+  <script src="./JiuJitsu - Score Board_files/timer.js"></script>
+  <script src="./JiuJitsu - Score Board_files/modal.js"></script>
+  <script src="./JiuJitsu - Score Board_files/form-submit.js"></script>
+  <script src="./JiuJitsu - Score Board_files/refresh-page.js"></script>
+  <script src="./JiuJitsu - Score Board_files/game.js"></script>
+
+
+</body></html>

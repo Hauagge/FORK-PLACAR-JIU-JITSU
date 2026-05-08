@@ -1,0 +1,76 @@
+/* The Modal (background) */
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 1rem;
+  border: 1px solid #888;
+  border-radius: 0.3rem;
+}
+
+.modal-images {
+  display: flex;
+  justify-content: center; /* centraliza na horizontal */
+  align-items: center; /* alinha verticalmente */
+  gap: 20px; /* espaço entre as imagens */
+}
+
+.modal-images .modal-footer {
+  margin: 0; /* evita espaçamentos desnecessários */
+}
+
+.modal-images img {
+  display: block;
+  width: 300px; /* todas terão a mesma largura */
+  height: 120px;
+  object-fit: contain; /* mantém proporção sem distorcer */
+  object-position: center;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  color: white;
+  width: 100%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  display: flex;
+  justify-content: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+}
+.footer-logo img {
+  width: 500px;
+  height: aPXuto;
+}
