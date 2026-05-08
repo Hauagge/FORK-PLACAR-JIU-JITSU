@@ -2,15 +2,16 @@
 .modal {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  background-color: rgb(0, 0, 0);
-  margin: 0 auto;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.92);
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   z-index: 99999;
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow-y: auto;
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
 /* Modal Content/Box */
@@ -18,28 +19,30 @@
   display: flex;
   flex-direction: column;
   background-color: #fcfcfc;
-  margin: 10% auto; /* 15% from the top and centered */
-  padding: 1rem;
+  margin: auto;
+  padding: clamp(1rem, 2.5vw, 2rem);
   border: 1px solid #888;
   border-radius: 0.3rem;
+  width: min(100%, 34rem);
 }
 
 .modal-images {
   display: flex;
-  justify-content: center; /* centraliza na horizontal */
-  align-items: center; /* alinha verticalmente */
-  gap: 20px; /* espaço entre as imagens */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .modal-images .modal-footer {
-  margin: 0; /* evita espaçamentos desnecessários */
+  margin: 0;
 }
 
 .modal-images img {
   display: block;
-  width: 300px; /* todas terão a mesma largura */
-  height: 120px;
-  object-fit: contain; /* mantém proporção sem distorcer */
+  width: min(100%, 18rem);
+  height: clamp(5rem, 14vw, 8.75rem);
+  object-fit: contain;
   object-position: center;
 }
 
@@ -50,7 +53,6 @@
   width: 100%;
 }
 
-/* The Close Button */
 .close {
   color: #aaa;
   display: flex;
@@ -69,8 +71,22 @@
 .footer-logo {
   display: flex;
   justify-content: center;
+  width: 100%;
+  padding: 1rem;
 }
+
 .footer-logo img {
-  width: 500px;
-  height: aPXuto;
+  width: min(100%, 25rem);
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .modal-content {
+    width: 100%;
+  }
+
+  .modal-images img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
