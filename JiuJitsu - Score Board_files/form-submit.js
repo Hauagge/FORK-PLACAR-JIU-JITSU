@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     const data = new FormData(e.target);
+    const startButton = document.querySelector('[data-timer-start]');
+
+    if (typeof clearWinnerState === 'function') {
+      clearWinnerState();
+    }
 
     timer.reset();
     player1.reset();
@@ -15,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // player2.setName(' ');
     timer.stop();
     timer.setMinutes(data.get('timer'));
+    startButton.classList.remove('hide');
+    startButton.innerHTML = 'Iniciar';
 
 
     modal.style.display = "none";

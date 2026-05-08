@@ -13,6 +13,10 @@ const restart = () => {
   const startButton = document.querySelector('[data-timer-start]');
   const configContent = document.querySelector('[data-config-content]');
   if (confirmed) {
+    if (typeof clearWinnerState === 'function') {
+      clearWinnerState();
+    }
+
     timer.stop();
     timer.started = false;
     timer.reset();
@@ -20,6 +24,7 @@ const restart = () => {
     configContent.classList.remove('hide');
     player1.reset();
     player2.reset();
+    startButton.classList.remove('hide');
     startButton.innerHTML = 'Iniciar';
   }
 }

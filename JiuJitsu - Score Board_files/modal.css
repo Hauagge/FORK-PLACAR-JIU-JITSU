@@ -74,6 +74,7 @@
   flex: 0 0 auto;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   padding: clamp(0.65rem, 1.8vh, 1.2rem) 1rem;
   overflow: hidden;

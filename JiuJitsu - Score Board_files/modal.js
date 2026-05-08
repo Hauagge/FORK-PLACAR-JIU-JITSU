@@ -8,9 +8,24 @@ var body = document.getElementById("body");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
+function syncTimerRangeDisplay() {
+  var timerInput = document.querySelector('input[type="range"][name="timer"]');
+  var timerLabel = document.querySelector('label[for="timer"] > span');
+
+  if (!timerInput || !timerLabel) {
+    return;
+  }
+
+  if (window.timer) {
+    timerInput.value = Number(window.timer.initialMinute || window.timer.minute || 0);
+  }
+
+  timerLabel.innerHTML = `${timerInput.value} minutos`;
+}
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
+  syncTimerRangeDisplay();
   modal.style.display = "flex";
 }
 
@@ -26,5 +41,5 @@ window.onclick = function(event) {
   }
 }
 
-
+document.addEventListener('DOMContentLoaded', syncTimerRangeDisplay);
 

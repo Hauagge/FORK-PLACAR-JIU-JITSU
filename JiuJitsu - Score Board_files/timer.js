@@ -1,7 +1,8 @@
 function Timer(minute = 5, renderElementSelector = '[data-show-timer]', countdownSoundSelector = '[data-countdown-sound]') {
-   this.initialMinute = minute;
+  this.initialMinute = minute;
   this.minute = minute;
   this.started = false;
+  this.finished = false;
 
   this.timeInSeconds = () => {
     return this.minute * 60;
@@ -17,20 +18,25 @@ function Timer(minute = 5, renderElementSelector = '[data-show-timer]', countdow
   this.toggle = () => { this.started ? this.stop() : this.start(); }
 
   this.start = () => {
+    this.finished = false;
     this.started = true;
 
     this.interval = setInterval(() => {
-      console.log("time In Seconds",this.timeInSeconds())
       if (this.timeInSeconds() >= 1) {
         this.minute = (this.timeInSeconds() - 1) / 60;
       } else {
         this.minute = 0;
-        clearInterval(this.interval);
+        this.stop();
+        this.finished = true;
       }
 
       this.countSoundPlayer(this.timeInSeconds() <= 4)
 
       this.render();
+
+      if (this.finished) {
+        document.dispatchEvent(new CustomEvent('match:finished'));
+      }
     }, 1000);
   }
 
@@ -43,7 +49,10 @@ function Timer(minute = 5, renderElementSelector = '[data-show-timer]', countdow
 
   this.reset = () => {
     this.started = false;
-    this.minute =  this.initialMinute;;
+    this.finished = false;
+    this.minute = this.initialMinute;
+    this.countSoundPlayer(false);
+    clearInterval(this.interval);
     this.render();
   }
 
